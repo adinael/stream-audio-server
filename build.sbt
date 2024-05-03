@@ -7,8 +7,10 @@ lazy val root = (project in file("."))
     name := "video player",
     Compile / scalacOptions += "-Xlint",
     Compile / console / scalacOptions --= Seq("-Ywarn-unused", "-Ywarn-unused-import"),
-    Test / fork := true
+    Test / fork := true,
+    maintainer := "adin692@gmail.com"
   )
+  .enablePlugins(JavaServerAppPackaging)
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http" % "10.5.2",
