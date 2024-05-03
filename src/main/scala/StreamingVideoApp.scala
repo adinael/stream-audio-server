@@ -1,5 +1,5 @@
 import akka.actor.ActorSystem
-import akka.http.scaladsl.model.{ContentTypes, HttpEntity, HttpResponse, MediaTypes}
+import akka.http.scaladsl.model.{HttpEntity, HttpResponse, MediaTypes}
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.Route
 import akka.stream.IOResult
@@ -10,10 +10,10 @@ import java.nio.file.Paths
 import scala.concurrent.{ExecutionContext, Future}
 
 object StreamingVideoApp {
-  implicit val system: ActorSystem  = ActorSystem("StreamingVideoApp")
+  implicit val system: ActorSystem = ActorSystem("StreamingVideoApp")
   implicit val ex: ExecutionContext = ExecutionContext.global
-  private val videoFilePath         = Paths.get("src/main/resources/testvideo.webm")
-  private val audioDirectoryPath    = Paths.get("src/main/resources/songs/")
+  private val videoFilePath = Paths.get("src/main/resources/testvideo.webm")
+  private val audioDirectoryPath = Paths.get("src/main/resources/songs/")
 
   private val videoRoute: Route =
     path("video") {

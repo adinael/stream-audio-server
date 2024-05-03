@@ -4,7 +4,10 @@ ThisBuild / scalaVersion := "2.13.11"
 
 lazy val root = (project in file("."))
   .settings(
-    name := "akka streams"
+    name := "video player",
+    Compile / scalacOptions += "-Xlint",
+    Compile / console / scalacOptions --= Seq("-Ywarn-unused", "-Ywarn-unused-import"),
+    Test / fork := true
   )
 
 libraryDependencies ++= Seq(
@@ -13,5 +16,5 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http-testkit" % "10.5.2" % Test,
   "com.typesafe.akka" %% "akka-actor-testkit-typed" % "2.8.3" % Test,
   "org.scalatest" %% "scalatest" % "3.3.0-SNAP4" % Test,
-  "ch.qos.logback" % "logback-classic" % "1.4.8" % Test
+  "ch.qos.logback" % "logback-classic" % "1.5.6" % Test
 )
